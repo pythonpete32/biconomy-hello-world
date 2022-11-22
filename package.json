@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@biconomy/smart-account": "^0.0.2",
+    "@biconomy/smart-account": "0.0.2",
     "@rainbow-me/rainbowkit": "^0.8.0",
     "ethers": "^5.0.0",
     "fs": "^0.0.1-security",

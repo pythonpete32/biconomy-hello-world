@@ -1,7 +1,5 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
-
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 import { ChainId } from "@biconomy/core-types";
@@ -25,24 +23,15 @@ const Home: NextPage = () => {
         activeNetworkId: ChainId.GOERLI,
         supportedNetworksIds: [ChainId.GOERLI],
       };
-      // const walletProvider = new ethers.providers.Web3Provider(
-      //   provider?.providerConfigs[1]
-      // );
-      const smartAccount = new SmartAccount(
-        // walletProvider,
-        provider,
-        // provider?.providerConfigs[1],
-        // signer,
-        options
-      );
+
+      const smartAccount = new SmartAccount(signer, options);
       await smartAccount.init();
       setSmartAccount(smartAccount);
     }
-    if (!!provider && !!address) {
+    if (!!signer && !!address) {
       setupSmartAccount();
-      console.log("Provider...", provider.providerConfigs[1]);
     }
-  }, [provider, address]);
+  }, [address, signer]);
 
   return (
     <div className={styles.container}>
